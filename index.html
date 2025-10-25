@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basher Birthdays 🎂 | Byte Bash Blitz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <img src="https://terminal.bytebashblitz.org/assets/bashers-hSpT8bya.png" alt="Byte Bash Blitz" class="logo">
+            <h1 class="title">
+                <span class="terminal-prompt">$</span>
+                <span class="typed-text">Basher Birthdays</span>
+                <span class="cursor">_</span>
+            </h1>
+        </header>
+
+        <!-- Today's Birthdays Banner -->
+        <div id="todayBanner" class="today-banner hidden">
+            <div class="confetti-container" id="confettiContainer"></div>
+            <h2>🎉 Happy Birthday! 🎉</h2>
+            <div id="todayNames" class="today-names"></div>
+        </div>
+
+        <!-- Next Birthday Countdown -->
+        <div class="countdown-section">
+            <div class="countdown-card">
+                <span class="countdown-icon">⏰</span>
+                <span id="nextBirthday">Loading next birthday...</span>
+            </div>
+        </div>
+
+        <!-- Month Navigation -->
+        <nav class="month-nav">
+            <button class="month-btn" data-month="0">Jan</button>
+            <button class="month-btn" data-month="1">Feb</button>
+            <button class="month-btn" data-month="2">Mar</button>
+            <button class="month-btn" data-month="3">Apr</button>
+            <button class="month-btn" data-month="4">May</button>
+            <button class="month-btn" data-month="5">Jun</button>
+            <button class="month-btn" data-month="6">Jul</button>
+            <button class="month-btn" data-month="7">Aug</button>
+            <button class="month-btn" data-month="8">Sep</button>
+            <button class="month-btn" data-month="9">Oct</button>
+            <button class="month-btn" data-month="10">Nov</button>
+            <button class="month-btn" data-month="11">Dec</button>
+        </nav>
+
+        <!-- Birthday Cards Grid -->
+        <div class="birthday-grid" id="birthdayGrid"></div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number" id="totalBashers">0</div>
+                <div class="stat-label">Total Bashers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="busiestMonth">-</div>
+                <div class="stat-label">Busiest Month</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
