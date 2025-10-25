@@ -4,7 +4,7 @@ An elegant webpage for celebrating birthdays of all members in the Byte Bash Bli
 
 ## Overview
 
-Basher Birthdays is a professionally designed birthday calendar that showcases all 46 members of the Byte Bash Blitz community. The application features a modern, dark-themed interface with smooth animations and an intuitive user experience.
+Basher Birthdays is a professionally designed birthday calendar that showcases all 44 members of the Byte Bash Blitz community. The application features a modern, dark-themed interface with smooth animations and an intuitive user experience.
 
 ## Features
 
