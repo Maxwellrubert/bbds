@@ -970,7 +970,7 @@
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
             </div>
-            <div class="stat-number" id="totalBashers">44</div>
+            <div class="stat-number" id="totalBashers">43</div>
             <div class="stat-label">Total Bashers</div>
         </div>
         <div class="stat-card">
@@ -1372,7 +1372,7 @@
                 </div>
                 <div class="birthday-card">
                     <div class="birthday-icon">🎉</div>
-                    <h3 class="birthday-name">Mohamed Ashif M</h3>
+                    <h3 class="birthday-name">Mohamed Ashif</h3>
                     <p class="birthday-date"><span class="date-icon">📅</span> November 08</p>
                 </div>
                 <div class="birthday-card">
@@ -1387,7 +1387,7 @@
                 </div>
                 <div class="birthday-card">
                     <div class="birthday-icon">🎊</div>
-                    <h3 class="birthday-name">Jenish.s</h3>
+                    <h3 class="birthday-name">Jenish</h3>
                     <p class="birthday-date"><span class="date-icon">📅</span> November 21</p>
                 </div>
                 <div class="birthday-card">
@@ -1442,7 +1442,7 @@
             <img src="https://terminal.bytebashblitz.org/assets/bashers-hSpT8bya.png" alt="Byte Bash Blitz Logo" class="footer-logo">
         </div>
         <p>Made with <span class="footer-heart">♥</span> for the Byte Bash Blitz Community</p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Celebrating 44 amazing Bashers</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Celebrating 43 amazing Bashers</p>
     </footer>
 
     <script>
@@ -1466,7 +1466,6 @@
             { name: "M.Sriharshini", month: 5, day: 31 },
             { name: "Geo Nithin J", month: 6, day: 3 },
             { name: "Sowmiya S", month: 6, day: 22 },
-            { name: "Luxica Bency G K", month: 7, day: 1 },
             { name: "Anjai S", month: 7, day: 2 },
             { name: "A.S.Arthi", month: 7, day: 3 },
             { name: "Roshan Lal J", month: 7, day: 6 },
@@ -1614,8 +1613,16 @@
                     dateIconElement.innerHTML = icons.calendar;
                 }
                 
-                // Find birthday data
-                const birthday = birthdays.find(b => b.name === name);
+                // Find birthday data - use flexible matching (case-insensitive and partial match)
+                const birthday = birthdays.find(b => {
+                    const cardName = name.toLowerCase().trim();
+                    const bdayName = b.name.toLowerCase().trim();
+                    // Check if names match exactly or if one contains the other
+                    return cardName === bdayName || 
+                           bdayName.includes(cardName) || 
+                           cardName.includes(bdayName);
+                });
+                
                 if (!birthday) return;
 
                 const daysUntil = getDaysUntil(birthday.month, birthday.day);
@@ -1629,13 +1636,12 @@
                     badge = '<span class="countdown-badge today">TODAY</span>';
                 } else if (daysUntil <= 7) {
                     badge = `<span class="countdown-badge soon">in ${daysUntil} ${daysUntil === 1 ? 'day' : 'days'}</span>`;
-                } else if (daysUntil <= 30) {
-                    badge = `<span class="countdown-badge">in ${daysUntil} days</span>`;
+                } else {
+                    // Show countdown for all members, regardless of days until birthday
+                    badge = `<span class="countdown-badge">in ${daysUntil} ${daysUntil === 1 ? 'day' : 'days'}</span>`;
                 }
 
-                if (badge) {
-                    dateElement.insertAdjacentHTML('afterend', badge);
-                }
+                dateElement.insertAdjacentHTML('afterend', badge);
             });
         }
 
